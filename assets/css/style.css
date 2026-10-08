@@ -313,21 +313,6 @@ h2.section-title span { color: var(--c-primary); }
 .is-scrolled .burger span, .is-scrolled .burger::before, .is-scrolled .burger::after { background: var(--c-navy); }
 .burger { flex-direction: column; gap: 5px; }
 
-/* Attention hints: nudge first-time visitors toward the nav */
-@keyframes hintBounce {
-  0%, 18%, 36%, 100% { transform: translateY(0); }
-  9%, 27% { transform: translateY(3px); }
-}
-.chev.hint-bounce { animation: hintBounce 3.2s ease-in-out infinite; }
-.chev.hint-bounce.is-done { animation: none; }
-
-@keyframes hintPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(23,138,42,.5); }
-  50% { box-shadow: 0 0 0 8px rgba(23,138,42,0); }
-}
-.burger.hint-pulse { animation: hintPulse 2.4s ease-out infinite; }
-.burger.hint-pulse.is-done { animation: none; }
-
 /* Mobile drawer */
 .mobile-drawer {
   position: fixed; inset: 0; z-index: 1100;

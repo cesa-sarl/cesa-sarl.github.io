@@ -21,34 +21,11 @@
     }
   }
 
-  /* ---------- Nav discovery hints (bounce/pulse until the visitor notices) ---------- */
-  var navHintSeen = false;
-  try {
-    navHintSeen = localStorage.getItem("cesa_nav_hint_seen") === "1";
-  } catch (e) {}
-  var markNavHintSeen = function () {
-    if (navHintSeen) return;
-    navHintSeen = true;
-    try {
-      localStorage.setItem("cesa_nav_hint_seen", "1");
-    } catch (e) {}
-    document.querySelectorAll(".hint-bounce, .hint-pulse").forEach(function (el) {
-      el.classList.add("is-done");
-    });
-  };
-  if (navHintSeen) {
-    document.querySelectorAll(".hint-bounce, .hint-pulse").forEach(function (el) {
-      el.classList.add("is-done");
-    });
-  }
-
   /* ---------- Desktop mega menu (click fallback for touch) ---------- */
   document.querySelectorAll(".nav-item").forEach(function (item) {
     var link = item.querySelector(".nav-link");
     if (!link || !item.querySelector(".mega")) return;
-    item.addEventListener("mouseenter", markNavHintSeen);
     link.addEventListener("click", function (e) {
-      markNavHintSeen();
       if (window.matchMedia("(hover: none)").matches) {
         e.preventDefault();
         document.querySelectorAll(".nav-item.is-open").forEach(function (o) {
@@ -80,10 +57,7 @@
       drawer.classList.remove("is-open");
       document.body.style.overflow = "";
     };
-    burger.addEventListener("click", function () {
-      markNavHintSeen();
-      openDrawer();
-    });
+    burger.addEventListener("click", openDrawer);
     if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
     if (backdrop) backdrop.addEventListener("click", closeDrawer);
   }
