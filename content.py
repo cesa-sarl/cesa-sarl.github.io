@@ -122,7 +122,7 @@ add({
             "title": "CESA, le partenaire <span>de confiance</span> pour vos projets d'ingénierie",
             "lead": "CESA est une entreprise d'énergie et d'ingénierie basée à Cotonou, au Bénin, en Afrique de l'Ouest.",
             "paragraphs": [
-                "Avec 25 ans d'expérience, CESA fournit des services spécialisés en climatisation, électricité, énergie solaire, sanitaire et acoustique — ainsi qu'en ascenseurs, groupes électrogènes, protection incendie, protection contre les surtensions atmosphériques, communication et génie civil.",
+                "Avec 25 ans d'expérience, CESA fournit des services spécialisés en climatisation, électricité, énergie solaire, sanitaire et acoustique, ainsi qu'en ascenseurs, groupes électrogènes, protection incendie, protection contre les surtensions atmosphériques, communication et génie civil.",
                 "Que ce soit à l'Aéroport International de Cadjehoun, à la Présidence de la République ou lors de l'éclairage de divers axes routiers de Cotonou, nos équipes conçoivent et exécutent des solutions adaptées aux besoins de nos clients, publics comme privés.",
             ],
             "bullets": [
@@ -138,7 +138,7 @@ add({
             "type": "category-grid", "bg": "alt", "id": "metiers",
             "eyebrow": "Nos expertises", "cols": 3,
             "title": "Neuf domaines, <span>une seule</span> exigence d'excellence",
-            "lead": "De la production d'énergie au confort du bâtiment, CESA couvre l'ensemble des métiers techniques de vos infrastructures — appuyé par une activité transversale de génie-conseil.",
+            "lead": "De la production d'énergie au confort du bâtiment, CESA couvre l'ensemble des métiers techniques de vos infrastructures, appuyé par une activité transversale de génie-conseil.",
             "cards": [
                 {"image": IMG("realisations", "upp-solaire-1mw-2018.jpg"), "tag": "Énergie", "title": "Énergie Solaire", "text": "Centrales et kits photovoltaïques, étude et dimensionnement.", "href": "energie-solaire.html"},
                 {"image": IMG("expertises", "electricite-collage.jpg"), "tag": "Électricité", "title": "Électricité", "text": "Bâtiment, réseau MT, groupes électrogènes, éclairage public.", "href": "electricite.html"},
@@ -260,7 +260,7 @@ add({
         "breadcrumb": [("Accueil", "index.html"), ("Nos expertises", "expertises.html")],
         "eyebrow": "Nos expertises",
         "title": "Neuf domaines, <span>une seule</span> exigence d'excellence",
-        "lead": "CESA couvre l'ensemble des métiers techniques qui font fonctionner un bâtiment ou une infrastructure — avec, en transversal, une activité de génie-conseil sur chacun de ces domaines.",
+        "lead": "CESA couvre l'ensemble des métiers techniques qui font fonctionner un bâtiment ou une infrastructure, avec en transversal une activité de génie-conseil sur chacun de ces domaines.",
     },
     "sections": [
         {
@@ -364,8 +364,8 @@ expertise_page(
     hero_title="<span>Électricité</span> Bâtiment & Réseau",
     hero_lead="Câblage, tableaux, postes moyenne tension et groupes électrogènes : l'électricité maîtrisée, du bâtiment à l'infrastructure publique.",
     intro_paragraphs=[
-        "CESA conçoit et installe des infrastructures électriques de bâtiment et de réseau moyenne tension, ainsi que l'éclairage public — à l'image de l'éclairage de divers axes routiers de Cotonou.",
-        "Nous fournissons et installons également des groupes électrogènes de toute puissance, pour sécuriser l'alimentation électrique des sites sensibles — hôpitaux, banques, hôtels, bâtiments administratifs.",
+        "CESA conçoit et installe des infrastructures électriques de bâtiment et de réseau moyenne tension, ainsi que l'éclairage public, à l'image de l'éclairage de divers axes routiers de Cotonou.",
+        "Nous fournissons et installons également des groupes électrogènes de toute puissance, pour sécuriser l'alimentation électrique des sites sensibles : hôpitaux, banques, hôtels, bâtiments administratifs.",
     ],
     intro_bullets=[
         "Électricité bâtiment : câblage, tableaux électriques",
@@ -417,7 +417,7 @@ expertise_page(
     hero_lead="Des réseaux d'eau et d'évacuation fiables, conçus pour durer.",
     intro_paragraphs=[
         "CESA conçoit et installe les réseaux sanitaires des bâtiments résidentiels, tertiaires et industriels : distribution d'eau, évacuations, équipements sanitaires.",
-        "Ces installations sont pensées en cohérence avec nos autres interventions techniques — électricité, climatisation — pour des bâtiments fonctionnels de bout en bout.",
+        "Ces installations sont pensées en cohérence avec nos autres interventions techniques (électricité, climatisation) pour des bâtiments fonctionnels de bout en bout.",
     ],
     intro_bullets=[
         "Distribution d'eau potable",
@@ -468,7 +468,7 @@ expertise_page(
     hero_title="Sécurité & <span>Protection Incendie</span>",
     hero_lead="Protéger les personnes et les biens : réseaux incendie, détection électronique et protection contre la foudre.",
     intro_paragraphs=[
-        "CESA conçoit et installe des systèmes de protection incendie eau — poteaux d'incendie, robinets d'incendie armés (RIA), réseaux sprinklers — ainsi que des systèmes de détection incendie électronique et d'alarme.",
+        "CESA conçoit et installe des systèmes de protection incendie eau (poteaux d'incendie, robinets d'incendie armés RIA, réseaux sprinklers), ainsi que des systèmes de détection incendie électronique et d'alarme.",
         "Nous installons également des dispositifs de protection contre les surtensions atmosphériques (parafoudre), indispensables sous les climats à forte activité orageuse comme celui du Bénin.",
     ],
     intro_bullets=[
@@ -594,10 +594,10 @@ add({
             "eyebrow": "Projets phares",
             "title": "Quelques repères <span>parmi nos interventions</span>",
             "cards": [
-                {"image": IMG("realisations", "aeroport-arrivee-2012.jpg"), "tag": "Infrastructure · 2012", "title": "Extension du Hall Arrivée — Aéroport Cardinal Bernardin Gantin", "text": "Climatisation et électricité pour l'extension du hall des arrivées de l'aéroport de Cotonou.", "href": "climatisation.html"},
-                {"image": IMG("realisations", "aeroport-depart-2020.jpg"), "tag": "Infrastructure · 2020", "title": "Extension du Hall Départ — Aéroport Cardinal Bernardin Gantin", "text": "Climatisation et aménagements techniques pour l'extension du hall des départs.", "href": "climatisation.html"},
+                {"image": IMG("realisations", "aeroport-arrivee-2012.jpg"), "tag": "Infrastructure · 2012", "title": "Extension du Hall Arrivée, Aéroport Cardinal Bernardin Gantin", "text": "Climatisation et électricité pour l'extension du hall des arrivées de l'aéroport de Cotonou.", "href": "climatisation.html"},
+                {"image": IMG("realisations", "aeroport-depart-2020.jpg"), "tag": "Infrastructure · 2020", "title": "Extension du Hall Départ, Aéroport Cardinal Bernardin Gantin", "text": "Climatisation et aménagements techniques pour l'extension du hall des départs.", "href": "climatisation.html"},
                 {"image": IMG("realisations", "cdpa-siege-2013.jpg"), "tag": "Tertiaire · 2013", "title": "Siège de CDPA", "text": "Électricité bâtiment et réseaux techniques pour la tour du siège de CDPA à Cotonou.", "href": "electricite.html"},
-                {"image": IMG("realisations", "upp-solaire-1mw-2018.jpg"), "tag": "Énergie · 2018", "title": "Centrale solaire de 1 MW — Usine UPP", "text": "Conception et installation d'une centrale photovoltaïque industrielle de 1 MW.", "href": "energie-solaire.html"},
+                {"image": IMG("realisations", "upp-solaire-1mw-2018.jpg"), "tag": "Énergie · 2018", "title": "Centrale solaire de 1 MW, Usine UPP", "text": "Conception et installation d'une centrale photovoltaïque industrielle de 1 MW.", "href": "energie-solaire.html"},
                 {"image": IMG("realisations", "bid-villages-solaires.jpg"), "tag": "Énergie", "title": "Électrification solaire de 24 villages (BID)", "text": "Installation de kits solaires et d'éclairage public pour 24 villages, financée par la BID.", "href": "energie-solaire.html"},
                 {"image": IMG("realisations", "presidence.jpg"), "tag": "Institutionnel", "title": "Présidence de la République", "text": "Prestations techniques pour un site institutionnel de premier plan.", "href": "contact.html"},
                 {"image": IMG("realisations", "eclairage-solaire-routier.jpg"), "tag": "Éclairage public", "title": "Éclairage solaire d'axes routiers", "text": "Conception et installation de l'éclairage solaire de plusieurs axes routiers.", "href": "electricite.html"},
