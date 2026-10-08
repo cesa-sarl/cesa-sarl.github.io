@@ -806,7 +806,7 @@ h2.section-title span { color: var(--c-primary); }
   padding-top: 80px;
 }
 .footer-grid {
-  display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.2fr; gap: 40px;
+  display: grid; grid-template-columns: 1.1fr 1.5fr 0.9fr 1.2fr; gap: 40px;
   padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,.1);
 }
 .footer-brand .brand-word { color: var(--c-primary); }
@@ -828,6 +828,11 @@ h2.section-title span { color: var(--c-primary); }
 .footer-col ul { display: grid; gap: 12px; }
 .footer-col a { font-size: 0.9rem; display: inline-block; transition: color .2s ease, transform .2s ease; }
 .footer-col a:hover { color: #fff; transform: translateX(4px); }
+.footer-expertises-grid {
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  row-gap: 12px;
+}
 .footer-contact li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.88rem; line-height: 1.6; }
 .footer-contact svg { width: 16px; height: 16px; flex: none; margin-top: 3px; color: var(--c-primary); }
 .footer-bottom {
@@ -902,6 +907,7 @@ h2.section-title span { color: var(--c-primary); }
 
 @media (max-width: 560px) {
   .feature-grid, .card-grid, .card-grid.cols-2, .card-grid.cols-4, .clients-strip, .country-grid { grid-template-columns: 1fr; }
+  .footer-expertises-grid { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
   .hero-stats { grid-template-columns: repeat(2, 1fr); }
   .hero-actions { flex-direction: column; align-items: stretch; }

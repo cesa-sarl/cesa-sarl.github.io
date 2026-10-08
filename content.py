@@ -35,6 +35,18 @@ NAV = {
         ("Communication & Réseaux", "communication-reseaux.html"),
         ("Génie Civil & Génie-Conseil", "genie-civil.html"),
     ],
+    # Shorter labels for the footer's two-column link grid.
+    "expertises_short": [
+        ("Énergie Solaire", "energie-solaire.html"),
+        ("Électricité", "electricite.html"),
+        ("Climatisation", "climatisation.html"),
+        ("Sanitaire", "sanitaire.html"),
+        ("Acoustique", "acoustique.html"),
+        ("Sécurité Incendie", "securite-protection.html"),
+        ("Ascenseurs", "ascenseurs.html"),
+        ("Communication", "communication-reseaux.html"),
+        ("Génie Civil", "genie-civil.html"),
+    ],
 }
 
 CLIENT_LOGOS = [

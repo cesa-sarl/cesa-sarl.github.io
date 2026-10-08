@@ -7,10 +7,10 @@
         <p>Firme d'ingénierie basée à Cotonou, spécialisée dans l'énergie solaire, l'électricité, la climatisation et la protection incendie. 25 ans d'expérience au service des projets publics et privés au Bénin.</p>
       </div>
 
-      <div class="footer-col">
+      <div class="footer-col footer-col-expertises">
         <h5>Nos expertises</h5>
-        <ul>
-          {% for label, href in nav.expertises %}
+        <ul class="footer-expertises-grid">
+          {% for label, href in nav.expertises_short %}
           <li><a href="{{ base }}{{ href }}">{{ label }}</a></li>
           {% endfor %}
         </ul>
