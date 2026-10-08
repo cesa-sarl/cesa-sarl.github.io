@@ -1,0 +1,68 @@
+{% from "_icons.html" import icon %}
+<header class="site-header {{ 'is-solid' if solid_header else 'is-transparent' }}" data-solid="{{ 'true' if solid_header else 'false' }}">
+  <div class="container">
+    <a href="{{ base }}index.html" class="brand">
+      <img class="logo-light" src="{{ base }}assets/img/brand/logo-light.png" alt="CESA">
+      <img class="logo-dark" src="{{ base }}assets/img/brand/logo.png" alt="CESA">
+    </a>
+
+    <nav class="main-nav">
+      <ul>
+        <li class="nav-item"><a class="nav-link" href="{{ base }}index.html">Accueil</a></li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{ base }}expertises.html">Nos expertises {{ icon('chev','chev hint-bounce') }}</a>
+          <div class="mega mega-single">
+            <div class="mega-col">
+              <div class="mega-col-title">{{ icon('bolt') }} <a href="{{ base }}expertises.html">Vue d'ensemble</a></div>
+              <div class="mega-links">
+                {% for label, href in nav.expertises %}
+                <a href="{{ base }}{{ href }}"><span class="dot"></span>{{ label }}</a>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="{{ base }}realisations.html">Réalisations</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ base }}references.html">Références</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ base }}a-propos.html">À propos</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ base }}contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-cta">
+      <a class="header-phone" href="tel:{{ site.phone_tel }}">{{ icon('phone') }} {{ site.phone_display }}</a>
+      <a class="btn btn-primary btn-sm" href="{{ base }}contact.html">Demander un devis</a>
+      <button class="burger hint-pulse" aria-label="Ouvrir le menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-drawer">
+  <div class="drawer-backdrop"></div>
+  <div class="drawer-panel">
+    <div class="drawer-head">
+      <img src="{{ base }}assets/img/brand/logo.png" alt="CESA" style="height:32px; width:auto;">
+      <button class="drawer-close" aria-label="Fermer">{{ icon('close') }}</button>
+    </div>
+    <nav class="drawer-nav">
+      <a class="top-link" href="{{ base }}index.html">Accueil</a>
+      <details>
+        <summary>Nos expertises {{ icon('chev','chev') }}</summary>
+        <div class="drawer-sub">
+          <a href="{{ base }}expertises.html">Vue d'ensemble</a>
+          {% for label, href in nav.expertises %}<a href="{{ base }}{{ href }}">{{ label }}</a>{% endfor %}
+        </div>
+      </details>
+      <a class="top-link" href="{{ base }}realisations.html">Réalisations</a>
+      <a class="top-link" href="{{ base }}references.html">Références</a>
+      <a class="top-link" href="{{ base }}a-propos.html">À propos</a>
+      <a class="top-link" href="{{ base }}contact.html">Contact</a>
+    </nav>
+    <div class="drawer-foot">
+      <a class="btn btn-primary btn-block" href="{{ base }}contact.html">Demander un devis</a>
+      <a class="btn btn-outline btn-block" href="tel:{{ site.phone_tel }}">{{ icon('phone') }} {{ site.phone_display }}</a>
+    </div>
+  </div>
+</div>

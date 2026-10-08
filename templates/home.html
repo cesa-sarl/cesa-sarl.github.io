@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% from "_icons.html" import icon, url %}
+{% from "_sections.html" import render_section %}
+
+{% block content %}
+<section class="hero">
+  {% for img in hero.slides %}
+  <div class="hero-media hero-slide" style="background-image:url('{{ base }}{{ img }}'); opacity:{{ '1' if loop.first else '0' }};"></div>
+  {% endfor %}
+  <div class="container hero-content">
+    <div class="hero-eyebrow"><span class="dot"></span>{{ hero.eyebrow }}</div>
+    <h1>{{ hero.title | safe }}</h1>
+    <p class="lead">{{ hero.lead }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ url(base, hero.cta.href) }}">{{ icon('arrow') }} {{ hero.cta.label }}</a>
+      <a class="btn btn-ghost" href="{{ url(base, hero.cta2.href) }}">{{ hero.cta2.label }}</a>
+    </div>
+    <div class="hero-stats">
+      {% for st in hero.stats %}
+      <div class="hero-stat"><b>{{ st.num }}</b><span>{{ st.label }}</span></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="pillars">
+  <div class="container">
+    {% for p in pillars %}
+    <a class="pillar-card" href="{{ base }}{{ p.href }}" data-reveal data-reveal-delay="{{ loop.index0 * 90 }}">
+      <div class="pillar-icon">{{ icon(p.icon) }}</div>
+      <h3>{{ p.title }}</h3>
+      <p>{{ p.text }}</p>
+      <span class="link-arrow">En savoir plus {{ icon('arrow') }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% for s in sections %}{{ render_section(s, base) }}{% endfor %}
+{% endblock %}

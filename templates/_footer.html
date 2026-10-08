@@ -1,0 +1,51 @@
+{% from "_icons.html" import icon %}
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="{{ base }}assets/img/brand/logo-light.png" alt="CESA" style="height:40px; width:auto;">
+        <p>Firme d'ingénierie basée à Cotonou, spécialisée dans l'énergie solaire, l'électricité, la climatisation et la protection incendie. 25 ans d'expérience au service des projets publics et privés au Bénin.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Nos expertises</h5>
+        <ul>
+          {% for label, href in nav.expertises %}
+          <li><a href="{{ base }}{{ href }}">{{ label }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Entreprise</h5>
+        <ul>
+          <li><a href="{{ base }}a-propos.html">Qui sommes-nous</a></li>
+          <li><a href="{{ base }}realisations.html">Réalisations</a></li>
+          <li><a href="{{ base }}references.html">Références clients</a></li>
+          <li><a href="{{ base }}contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul class="footer-contact">
+          <li>{{ icon('pin') }} <span>{{ site.address_line1 }}<br>{{ site.address_line2 }}</span></li>
+          <li>{{ icon('phone') }} <span><a href="tel:{{ site.phone_tel }}">{{ site.phone_display }}</a><br><a href="tel:{{ site.phone2_tel }}">{{ site.phone2_display }}</a><br><a href="tel:{{ site.phone3_tel }}">{{ site.phone3_display }}</a></span></li>
+          <li>{{ icon('mail') }} <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; <span id="y">2026</span> CESA. Tous droits réservés.</span>
+      <span class="made">{{ site.rccm }}</span>
+    </div>
+  </div>
+</footer>
+
+<div class="fab-stack">
+  <a class="fab fab-whatsapp" href="https://wa.me/{{ site.whatsapp }}?text=Bonjour%20CESA%2C%20je%20souhaite%20une%20information%20sur%20vos%20services." target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">{{ icon('wa') }}</a>
+  <button class="fab fab-top" aria-label="Haut de page">{{ icon('up') }}</button>
+</div>
+
+<script src="{{ base }}assets/js/main.js"></script>

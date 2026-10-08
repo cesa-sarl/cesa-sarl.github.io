@@ -1,0 +1,218 @@
+{% from "_icons.html" import icon, url %}
+
+{% macro render_hero_inner(hero, base) %}
+<section class="hero hero-inner">
+  <div class="hero-media" style="background-image:url('{{ base }}{{ hero.image }}')"></div>
+  <div class="container hero-content">
+    {% if hero.breadcrumb %}
+    <nav class="breadcrumb" style="margin-bottom:22px;">
+      {% for label, href in hero.breadcrumb %}
+        {% if not loop.last %}<a href="{{ base }}{{ href }}">{{ label }}</a><span class="sep">/</span>
+        {% else %}<span class="current">{{ label }}</span>{% endif %}
+      {% endfor %}
+    </nav>
+    {% endif %}
+    {% if hero.eyebrow %}<div class="hero-eyebrow"><span class="dot"></span>{{ hero.eyebrow }}</div>{% endif %}
+    <h1>{{ hero.title | safe }}</h1>
+    {% if hero.lead %}<p class="lead">{{ hero.lead }}</p>{% endif %}
+    {% if hero.cta %}
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ url(base, hero.cta.href) }}">{{ icon('arrow') }} {{ hero.cta.label }}</a>
+      {% if hero.cta2 %}<a class="btn btn-ghost" href="{{ url(base, hero.cta2.href) }}">{{ hero.cta2.label }}</a>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endmacro %}
+
+
+{# ---------- inner (bare) content macros — no outer <section>/.container ---------- #}
+
+{% macro _head(s) %}
+{% if s.eyebrow or s.title or s.lead %}
+<div class="section-head {{ 'center' if s.center else '' }}" data-reveal>
+  {% if s.eyebrow %}<div class="eyebrow">{{ s.eyebrow }}</div>{% endif %}
+  {% if s.title %}<h2 class="section-title">{{ s.title | safe }}</h2>{% endif %}
+  {% if s.lead %}<p class="section-lead">{{ s.lead }}</p>{% endif %}
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro _split(s, base) %}
+<div class="grid-2 {{ 'reverse' if s.reverse else '' }}">
+  <div data-reveal>
+    {% if s.eyebrow %}<div class="eyebrow">{{ s.eyebrow }}</div>{% endif %}
+    {% if s.title %}<h2 class="section-title">{{ s.title | safe }}</h2>{% endif %}
+    {% if s.lead %}<p class="section-lead">{{ s.lead }}</p>{% endif %}
+    {% if s.paragraphs %}{% for p in s.paragraphs %}<p class="section-lead" style="margin-top:14px;">{{ p }}</p>{% endfor %}{% endif %}
+    {% if s.bullets %}
+    <ul class="check-list">
+      {% for b in s.bullets %}<li>{{ icon('check') }}<span>{{ b }}</span></li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% if s.cta %}<a class="btn btn-primary" href="{{ url(base, s.cta.href) }}">{{ icon('arrow') }} {{ s.cta.label }}</a>{% endif %}
+  </div>
+  <div class="media-frame" data-reveal="scale">
+    <img src="{{ base }}{{ s.image }}" alt="{{ s.title | default('ASCO') | striptags }}" loading="lazy">
+    {% if s.badge %}<div class="badge">{{ icon(s.badge.icon or 'check') }} {{ s.badge.text }}</div>{% endif %}
+  </div>
+</div>
+{% endmacro %}
+
+{% macro _feature_grid(s) %}
+{{ _head(s) }}
+<div class="feature-grid" style="{% if s.cols %}--cols:{{ s.cols }};{% endif %}">
+  {% for it in s.cards %}
+  <div class="feature-card" data-reveal data-reveal-delay="{{ loop.index0 * 70 }}">
+    <div class="feature-icon">{{ icon(it.icon or 'check') }}</div>
+    <h3>{{ it.title }}</h3>
+    <p>{{ it.text }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro _category_grid(s, base) %}
+{{ _head(s) }}
+<div class="card-grid {{ 'cols-' ~ s.cols if s.cols else '' }}">
+  {% for it in s.cards %}
+  <a class="prod-card" href="{{ base }}{{ it.href }}" data-reveal data-reveal-delay="{{ loop.index0 * 60 }}">
+    <img src="{{ base }}{{ it.image }}" alt="{{ it.title }}" loading="lazy">
+    <span class="arrow-pill">{{ icon('arrow') }}</span>
+    <div class="prod-body">
+      {% if it.tag %}<span class="prod-tag">{{ it.tag }}</span>{% endif %}
+      <h3>{{ it.title }}</h3>
+      {% if it.text %}<p>{{ it.text }}</p>{% endif %}
+    </div>
+  </a>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro _gallery(s, base) %}
+{{ _head(s) }}
+<div class="gallery" data-reveal>
+  {% for img in s.images %}
+  <div class="g-item {{ 'big' if loop.index0 in (s.big_indexes or []) else '' }}">
+    <img src="{{ base }}{{ img.src }}" alt="{{ img.alt }}" loading="lazy">
+    <span class="zoom-ic">{{ icon('zoom') }}</span>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro _range_grid(s) %}
+{{ _head(s) }}
+<div class="range-grid">
+  {% for it in s.cards %}
+  <div class="range-card" data-reveal data-reveal-delay="{{ loop.index0 * 60 }}">
+    <div class="range-head">
+      <h4>{{ it.name }}</h4>
+      {% if it.tag %}<span class="range-tag">{{ it.tag }}</span>{% endif %}
+    </div>
+    {% if it.weight or it.voltage %}
+    <div class="range-meta">
+      {% if it.weight %}<div><b>{{ it.weight }}</b>Charge</div>{% endif %}
+      {% if it.voltage %}<div><b>{{ it.voltage }}</b>Alimentation</div>{% endif %}
+    </div>
+    {% endif %}
+    <p>{{ it.text }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro _timeline(s) %}
+<div class="grid-2" style="align-items:start;">
+  <div class="timeline-head" data-reveal>
+    {% if s.eyebrow %}<div class="eyebrow">{{ s.eyebrow }}</div>{% endif %}
+    <h2 class="section-title">{{ s.title | safe }}</h2>
+    {% if s.lead %}<p class="section-lead">{{ s.lead }}</p>{% endif %}
+  </div>
+  <div class="timeline">
+    {% for it in s.cards %}
+    <div class="timeline-item" data-reveal data-reveal-delay="{{ loop.index0 * 60 }}">
+      <div class="timeline-num">{{ "%02d"|format(loop.index) }}</div>
+      <div><h3>{{ it.title }}</h3><p>{{ it.text }}</p></div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endmacro %}
+
+{% macro _country_grid(s) %}
+{{ _head(s) }}
+<div class="country-grid">
+  {% for c in s.cards %}
+  <div class="country-card" data-reveal data-reveal-delay="{{ loop.index0 * 50 }}">
+    <div class="flag-row"><span class="flag-dot"></span><h4>{{ c.country }}</h4></div>
+    <ul>{% for cl in c.clients %}<li>{{ cl }}</li>{% endfor %}</ul>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro _clients(s, base) %}
+{{ _head(s) }}
+{% if s.rating %}
+<a class="rating-badge" href="{{ s.rating.href }}" target="_blank" rel="noopener" data-reveal>
+  <span class="rating-stars">★★★★★</span>
+  <span>{{ s.rating.text }}</span>
+  {{ icon('arrow') }}
+</a>
+{% endif %}
+<div class="clients-strip" data-reveal>
+  {% for l in s.logos %}
+  <div class="client-logo" data-name="{{ l.name }}">
+    <img src="{{ base }}assets/img/clients/{{ l.file }}" alt="{{ l.name }}"
+         onerror="this.onerror=null; this.closest('.client-logo').innerHTML = '&lt;span class=&quot;fallback-word&quot;&gt;{{ l.name }}&lt;/span&gt;';">
+  </div>
+  {% endfor %}
+</div>
+{% if s.more %}<p class="clients-more">{{ s.more }}</p>{% endif %}
+{% endmacro %}
+
+{% macro _stats_strip(s) %}
+{{ _head(s) }}
+<div class="stats-strip" data-reveal>
+  {% for st in s.stats %}
+  <div class="stat-box"><b>{{ st.num }}</b><span>{{ st.label }}</span></div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro _cta_banner(s, base) %}
+<div class="cta-banner" data-reveal>
+  <div>
+    <h3>{{ s.title }}</h3>
+    <p>{{ s.text }}</p>
+  </div>
+  <div class="cta-actions">
+    <a class="btn btn-primary" href="{{ url(base, s.primary.href) }}">{{ icon('arrow') }} {{ s.primary.label }}</a>
+    {% if s.secondary %}<a class="btn btn-ghost" href="{{ url(base, s.secondary.href) }}">{{ s.secondary.label }}</a>{% endif %}
+  </div>
+</div>
+{% endmacro %}
+
+{% macro render_bare(s, base) %}
+{% if s.type == "split" %}{{ _split(s, base) }}
+{% elif s.type == "feature-grid" %}{{ _feature_grid(s) }}
+{% elif s.type == "category-grid" %}{{ _category_grid(s, base) }}
+{% elif s.type == "gallery" %}{{ _gallery(s, base) }}
+{% elif s.type == "range-grid" %}{{ _range_grid(s) }}
+{% elif s.type == "timeline" %}{{ _timeline(s) }}
+{% elif s.type == "country-grid" %}{{ _country_grid(s) }}
+{% elif s.type == "clients" %}{{ _clients(s, base) }}
+{% elif s.type == "stats" %}{{ _stats_strip(s) }}
+{% elif s.type == "cta-banner" %}{{ _cta_banner(s, base) }}
+{% endif %}
+{% endmacro %}
+
+{% macro render_section(s, base) %}
+<section class="section {{ 'navy' if s.type == 'stats-navy' else (s.bg or '') }}" {% if s.id %}id="{{ s.id }}"{% endif %}>
+  <div class="container">
+    {% if s.type == "stats-navy" %}{{ _stats_strip(s) }}
+    {% else %}{{ render_bare(s, base) }}{% endif %}
+  </div>
+</section>
+{% endmacro %}

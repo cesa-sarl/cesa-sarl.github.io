@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% from "_sections.html" import render_hero_inner, render_section, render_bare %}
+
+{% block content %}
+{{ render_hero_inner(hero, base) }}
+
+{% if cat_nav %}
+<section class="section tight">
+  <div class="container">
+    <div class="cat-layout">
+      <aside class="cat-aside">
+        <div class="cat-aside-title">{{ cat_nav.title }}</div>
+        <a href="{{ base }}{{ cat_nav.overview_href }}" class="{{ 'is-active' if cat_nav.active == '__overview__' else '' }}">
+          <span class="n">#</span> Vue d'ensemble
+        </a>
+        <hr>
+        {% for label, href in cat_nav.cards %}
+        <a href="{{ base }}{{ href }}" class="{{ 'is-active' if cat_nav.active == href else '' }}">
+          <span class="n">{{ loop.index }}</span> {{ label }}
+        </a>
+        {% endfor %}
+      </aside>
+      <div>
+        {% for s in sections %}
+        <div style="margin-bottom:64px;">{{ render_bare(s, base) }}</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% else %}
+  {% for s in sections %}{{ render_section(s, base) }}{% endfor %}
+{% endif %}
+{% endblock %}

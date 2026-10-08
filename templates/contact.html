@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% from "_icons.html" import icon %}
+{% from "_sections.html" import render_hero_inner %}
+
+{% block content %}
+{{ render_hero_inner(hero, base) }}
+
+<section class="section">
+  <div class="container">
+    <div class="contact-cards" data-reveal>
+      <div class="contact-card">
+        <div class="feature-icon">{{ icon('pin') }}</div>
+        <h4>Adresse</h4>
+        <p>{{ site.address_line1 }}<br>{{ site.address_line2 }}</p>
+      </div>
+      <div class="contact-card">
+        <div class="feature-icon">{{ icon('phone') }}</div>
+        <h4>Téléphone</h4>
+        <p><a href="tel:{{ site.phone_tel }}">{{ site.phone_display }}</a><br><a href="tel:{{ site.phone2_tel }}">{{ site.phone2_display }}</a><br><a href="tel:{{ site.phone3_tel }}">{{ site.phone3_display }}</a></p>
+      </div>
+      <div class="contact-card">
+        <div class="feature-icon">{{ icon('wa') }}</div>
+        <h4>WhatsApp</h4>
+        <p><a href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">{{ site.phone3_display }}</a></p>
+      </div>
+      <div class="contact-card">
+        <div class="feature-icon">{{ icon('mail') }}</div>
+        <h4>Email</h4>
+        <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      </div>
+    </div>
+
+    <div class="grid-2" style="align-items:flex-start; margin-top:20px;">
+      <div class="form-card" data-reveal>
+        <div class="eyebrow">Demande d'information</div>
+        <h2 class="section-title" style="font-size:1.6rem;">Parlez-nous de votre projet</h2>
+        <p class="section-lead" style="margin-bottom:26px;">Remplissez le formulaire : il ouvre directement WhatsApp ou votre messagerie avec votre demande pré-remplie, prête à nous être envoyée.</p>
+        <form data-lead-form data-whatsapp="{{ site.whatsapp }}">
+          <div class="form-grid">
+            <div class="field"><label>Nom</label><input type="text" name="Nom" required></div>
+            <div class="field"><label>Prénom</label><input type="text" name="Prénom" required></div>
+            <div class="field"><label>Email</label><input type="email" name="Email"></div>
+            <div class="field"><label>Téléphone</label><input type="tel" name="Téléphone" required></div>
+          </div>
+          <div class="field">
+            <label>Domaine concerné</label>
+            <select name="Domaine">
+              <option>Énergie solaire</option>
+              <option>Électricité (bâtiment &amp; réseau MT)</option>
+              <option>Climatisation</option>
+              <option>Ascenseurs</option>
+              <option>Protection incendie</option>
+              <option>Communication &amp; réseaux</option>
+              <option>Génie civil</option>
+              <option>Génie-conseil</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field full"><label>Votre message</label><textarea name="Message" placeholder="Décrivez votre projet, vos besoins, vos délais…"></textarea></div>
+          <button type="submit" class="btn btn-primary btn-block">{{ icon('arrow') }} Envoyer la demande</button>
+        </form>
+      </div>
+
+      <div data-reveal>
+        <div class="eyebrow">Horaires</div>
+        <h2 class="section-title" style="font-size:1.4rem;">Nos équipes vous répondent</h2>
+        <ul class="check-list">
+          <li>{{ icon('check') }}<span>Lundi – Vendredi : 8h00 – 18h00</span></li>
+          <li>{{ icon('check') }}<span>Samedi : 9h00 – 13h00</span></li>
+          <li>{{ icon('check') }}<span>Hotline technique aux heures ouvrables pour nos clients sous contrat</span></li>
+        </ul>
+        <a class="btn btn-outline btn-block" href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">{{ icon('wa') }} Discuter sur WhatsApp</a>
+      </div>
+    </div>
+
+    <div style="margin-top:70px;" data-reveal>
+      <div class="eyebrow">Nous trouver</div>
+      <h2 class="section-title" style="font-size:1.5rem;">Notre localisation à Cotonou</h2>
+      <p class="section-lead" style="margin-bottom:26px;">{{ site.address_line1 }}, {{ site.address_line2 }}.</p>
+      <div class="map-frame" style="height:440px;">
+        <iframe src="{{ site.maps_embed_src }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localisation CESA - Cotonou"></iframe>
+        <div class="badge">{{ icon('pin') }} Siège social CESA</div>
+      </div>
+      <div style="margin-top:22px; display:flex; gap:14px; flex-wrap:wrap;">
+        <a class="btn btn-primary" href="{{ site.maps_link }}" target="_blank" rel="noopener">{{ icon('pin') }} Voir sur Google Maps</a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&destination=CESA+Akpakpa+Cotonou" target="_blank" rel="noopener">{{ icon('arrow') }} Itinéraire</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

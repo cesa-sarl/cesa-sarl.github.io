@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} | CESA</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ og_url }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CESA">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="{{ title }} | CESA">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ og_url }}">
+<meta property="og:image" content="{{ og_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title }} | CESA">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="{{ og_image }}">
+<link rel="icon" type="image/png" href="{{ base }}assets/img/brand/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ base }}assets/css/style.css">
+</head>
+<body>
+
+{% include "_header.html" %}
+
+{% block content %}{% endblock %}
+
+{% include "_footer.html" %}
+
+</body>
+</html>
