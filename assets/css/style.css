@@ -867,7 +867,7 @@ h2.section-title span { color: var(--c-primary); }
 /* ==========================================================================
    Responsive
    ========================================================================== */
-@media (max-width: 1240px) and (min-width: 981px) {
+@media (min-width: 981px) {
   .main-nav a.nav-link { padding: 10px 11px; font-size: 0.89rem; }
   .header-cta { gap: 10px; }
   .header-phone { font-size: 0.84rem; white-space: nowrap; }
